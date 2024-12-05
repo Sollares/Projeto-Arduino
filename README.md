@@ -33,7 +33,7 @@ Documentação das Interfaces e Protocolos
 
 O protocolo MQTT é utilizado para a comunicação entre o NodeMCU e a plataforma de monitoramento. O NodeMCU publica o status do sensor de luz em tópicos específicos no broker MQTT. A plataforma de monitoramento assina esses tópicos e recebe as atualizações em tempo real, permitindo o controle e a automação da iluminação pública. Para uma visualização mais clara, observe a imagem abaixo.
 
-![git](https://github.com/user-attachments/assets/de293ae1-0022-4b80-975a-39c907cad013)
+
 
 Interface Web
 
