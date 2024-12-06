@@ -1,40 +1,38 @@
 #include <ESP8266WiFi.h>
-
 #include <PubSubClient.h>
 
+// Configurações de Wi-Fi e MQTT
 const char* ssid = "";
 const char* password = "";
-
-const char* mqtt_server = "test.mosquitto.org"; // IP ou URL do broker
-const int mqtt_port = 1883;
-const char* mqtt_topic = "casa/sensor/luz";
+const char* mqtt_server = "";
+const char* mqtt_topic = "";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-const int ldrPin = A0;
+// Pino do LDR
+const int ldrPin = A0;  // Entrada analógica para o sensor de luz
 
-void setup_wifi() {
+// Função para conectar ao Wi-Fi
+void setupWiFi() {
   delay(10);
-  Serial.println("Conectando ao WiFi...");
+  Serial.println("Conectando ao Wi-Fi...");
   WiFi.begin(ssid, password);
-  
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("WiFi conectado!");
+  Serial.println("\nConectado ao Wi-Fi!");
 }
 
+// Reconexão ao MQTT
 void reconnect() {
   while (!client.connected()) {
-    Serial.print("Conectando ao MQTT...");
-    if (client.connect("ESP8266Client")) { 
+    Serial.print("Tentando conectar ao MQTT...");
+    if (client.connect("ESP8266Client")) {
       Serial.println("Conectado!");
     } else {
-      Serial.print("Falha, rc=");
-      Serial.print(client.state());
-      Serial.println(" Tentando novamente em 5 segundos...");
+      Serial.print("Falha. Tentando novamente em 5 segundos...");
       delay(5000);
     }
   }
@@ -42,9 +40,8 @@ void reconnect() {
 
 void setup() {
   Serial.begin(115200);
-  setup_wifi();
-  
-  client.setServer(mqtt_server, mqtt_port);
+  setupWiFi();
+  client.setServer(mqtt_server, 1883);
 }
 
 void loop() {
@@ -53,11 +50,14 @@ void loop() {
   }
   client.loop();
 
-  int ldrValue = analogRead(ldrPin);
+  // Leitura do sensor LDR
+  int lightValue = analogRead(ldrPin);
+  Serial.print("Nível de luz: ");
+  Serial.println(lightValue);
 
-  String payload = String(ldrValue);
-  client.publish(mqtt_topic, payload.c_str());
-  Serial.println("Publicado no MQTT: " + payload);
+  // Publica o valor do sensor no MQTT
+  String lightStr = String(lightValue);
+  client.publish(mqtt_topic, lightStr.c_str());
 
-  delay(2000);
+  delay(2000);  // Aguarda 2 segundos antes de ler novamente
 }
