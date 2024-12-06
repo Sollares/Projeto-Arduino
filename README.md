@@ -48,7 +48,7 @@ Como Reproduzir
 
 1. Clone este repositório:
     ```sh
-    git clone https://github.com/seu-usuario/ProjetoNodeMCU.git
+   https://github.com/Sollares/Projeto-Arduino.git
     ```
 
 2. **Instale as dependências:** Bibliotecas do Arduino IDE: O projeto utiliza o NodeMCU ESP8266, então você precisará instalar as bibliotecas específicas para esse dispositivo no Arduino IDE. Após feito isso, vá em **Ferramentas > Placa > Gerenciador de Placas.** Busque por esp8266 e instale a última versão.
