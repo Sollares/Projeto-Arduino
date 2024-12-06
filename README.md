@@ -5,8 +5,8 @@
   <br> 
 </h1>
 
-Este projeto propõe um sistema inteligente de monitoramento de iluminação pública utilizando o microcontrolador NodeMCU ESP8266 e o protocolo MQTT. O sistema realiza a detecção do status de luminosidade por meio de um sensor LDR, enviando as informações para uma plataforma de monitoramento em tempo real.
-
+Este projeto apresenta um sistema inteligente para monitoramento de iluminação de uma estufa, utilizando o microcontrolador NodeMCU ESP8266 e o protocolo MQTT. O sistema detecta o nível de luminosidade por meio de um sensor LDR e transmite os dados para uma plataforma de monitoramento em tempo real.
+ 
  Funcionalidade
 
 - Verifica e monitora o nível de iluminação da estufa.
@@ -31,13 +31,13 @@ Este projeto utiliza os seguintes componentes:
 
 Documentação das Interfaces e Protocolos
 
-O protocolo MQTT é utilizado para a comunicação entre o NodeMCU e a plataforma de monitoramento. O NodeMCU publica o status do sensor de luz em tópicos específicos no broker MQTT. A plataforma de monitoramento assina esses tópicos e recebe as atualizações em tempo real, permitindo o controle e a automação da iluminação pública. Para uma visualização mais clara, observe a imagem abaixo.
+O protocolo MQTT é utilizado para a comunicação entre o NodeMCU e a plataforma de monitoramento. O NodeMCU publica o status do sensor de luz em tópicos específicos no broker MQTT. A plataforma de monitoramento assina esses tópicos e recebe as atualizações em tempo real, permitindo o controle e a automação da iluminação da estufa. Para uma visualização mais clara, observe a imagem abaixo.
 
 
 
 Interface Web
 
-Uma interface intuitiva que permite controle manual e monitoramento em tempo real da iluminação pública.
+Uma interface intuitiva que permite controle manual e monitoramento em tempo real da iluminação.
 
  Protocolos de Comunicação
 
@@ -53,7 +53,7 @@ Como Reproduzir
 
 2. **Instale as dependências:** Bibliotecas do Arduino IDE: O projeto utiliza o NodeMCU ESP8266, então você precisará instalar as bibliotecas específicas para esse dispositivo no Arduino IDE. Após feito isso, vá em **Ferramentas > Placa > Gerenciador de Placas.** Busque por esp8266 e instale a última versão.
 
-3. **Acesse o código-fonte:** Dentro deste repositório, o código fonte está localizado na pasta `src`.
+3. **Acesse o código-fonte:** Dentro deste repositório, o código fonte.
 
 4. **Código do NodeMCU:**
     - Abra o código no Arduino IDE;
